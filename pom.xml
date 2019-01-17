@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.itshow.cloud</groupId>
+  <artifactId>microservice-demo-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>microservice-config-server-eureka</module>
+    <module>microservice-admin-server</module>
+    <module>microservice-discovery-eureka</module>
+    <module>microservice-gateway-zuul</module>
+    <module>microservice-hystrix-dashboard</module>
+    <module>microservice-hystrix-turbine</module>
+    <module>microservice-user-service</module>
+    <module>microservice-product-service</module>
+    <module>microservice-order-service</module>
+  </modules>
+</project>
