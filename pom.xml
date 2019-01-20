@@ -17,5 +17,6 @@
     <module>microservice-user-service</module>
     <module>microservice-product-service</module>
     <module>microservice-order-service</module>
+    <module>trace-demo</module>
   </modules>
 </project>

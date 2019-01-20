@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.itshow.cloud</groupId>
+  <artifactId>microservice-trace-demo-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>microservice-trace-zipkin-server</module>
+    <module>microservice-trace-zipkin-server-stream</module>
+    <module>microservice-trace-zipkin-server-eureka</module>
+
+    <module>microservice-user-service-zipkin</module>
+    <module>microservice-user-service-zipkin-stream</module>
+    <module>microservice-product-service-zipkin</module>
+    <module>microservice-order-service-zipkin</module>
+  </modules>
+</project>
