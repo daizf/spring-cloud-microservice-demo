@@ -11,7 +11,7 @@ eureka:
     prefer-ip-address: true
 zuul:
   routes:
-    microservice-provider-user: 
+    microservice-user-service:
       path: /user/**
       strip-prefix: false
 logging:

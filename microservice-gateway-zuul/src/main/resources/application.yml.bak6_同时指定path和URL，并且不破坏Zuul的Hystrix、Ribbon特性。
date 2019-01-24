@@ -13,11 +13,11 @@ zuul:
   routes:
     user-route:
       path: /user/**
-      service-id: microservice-provider-user
+      service-id: microservice-user-service
 ribbon:
   eureka:
     enabled: false    # 禁用掉ribbon的eureka使用。详见：http://cloud.spring.io/spring-cloud-static/Camden.SR3/#_example_disable_eureka_use_in_ribbon
-microservice-provider-user:
+microservice-user-service:
   ribbon:
     listOfServers: localhost:8000,localhost:8001
 management:

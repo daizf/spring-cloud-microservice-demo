@@ -10,7 +10,7 @@ eureka:
   instance:
     prefer-ip-address: true
 zuul:
-  ignored-services: microservice-provider-user,microservice-consumer-movie
+  ignored-services: microservice-user-service,microservice-consumer-movie
 management:
   security:
     enabled: false

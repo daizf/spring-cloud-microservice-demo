@@ -12,3 +12,13 @@ eureka:
 management:
   security:
     enabled: false
+zuul:
+  prefix: /api  #统一增加映射前缀
+  strip-prefix: true
+  routes:
+    microservice-user-service: /user/**
+    microservice-product-service: /product/**
+    microservice-order-service: /order/**
+    user-route:                   # 该配置方式中，user-route只是给路由一个名称，可以任意起名。
+      url: http://localhost:8000/ # 指定的url，用于集成遗留系统
+      path: /old-user/**          # url对应的路径。
