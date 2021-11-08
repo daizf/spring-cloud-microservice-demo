@@ -9,6 +9,7 @@
 
   <modules>
     <module>microservice-config-server-eureka</module>
+    <module>microservice-config-client-eureka</module>
     <module>microservice-admin-server</module>
     <module>microservice-discovery-eureka</module>
     <module>microservice-gateway-zuul</module>
@@ -19,4 +20,28 @@
     <module>microservice-order-service</module>
     <module>trace-demo</module>
   </modules>
+
+  <!-- 添加spring-boot的maven插件 -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <!-- 引入spring cloud的依赖 -->
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Edgware.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
 </project>
