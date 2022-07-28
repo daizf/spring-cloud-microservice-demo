@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    run: user-service
+  sessionAffinity: None
+  type: ClusterIP
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  selector:
+    matchLabels:
+      run: user-service
+  replicas: {{.replicas}}
+  template:
+    metadata:
+      labels:
+        run: user-service
+    spec:
+      containers:
+        - name: user-service
+          image: registry.cn-hongkong.aliyuncs.com/pettool/user-service:alpine
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: EUREKA_SERVICE_URL     #服务注册中心地址
+              valueFrom:
+                configMapKeyRef:
+                  name: micro-config
+                  key: EUREKA_SERVICE_URL
+          resources:
+            limits:
+              # cpuLimit：部署时云效会将预置占位符{{ .cpuLimit }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同CPU限制，可搭配变量组使用
+              cpu: {{.cpuLimit}}
+              # memoryLimit：部署时云效会将预置占位符{{ .memoryLimit }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同内存限制，可搭配变量组使用
+              memory: {{.memoryLimit}}
+            requests:
+              # cpuRequest：部署时云效会将预置占位符{{ .cpuRequest }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同CPU请求，可搭配变量组使用
+              cpu: {{.cpuRequest}}
+              # memoryRequest：部署时云效会将预置占位符{{ .memoryRequest }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同内存请求，可搭配变量组使用
+              memory: {{.memoryRequest}}

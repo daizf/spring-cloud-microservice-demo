@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: micro-config
+data:
+  EUREKA_SERVICE_URL: http://eureka-server:8761
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-server
+spec:
+  ports:
+    - port: 8761
+      protocol: TCP
+      targetPort: 8761
+  selector:
+    run: eureka-server
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server
+spec:
+  selector:
+    matchLabels:
+      run: eureka-server
+  replicas: {{.replicas}}
+  template:
+    metadata:
+      labels:
+        run: eureka-server
+    spec:
+      containers:
+        - name: eureka-server
+          image: registry.cn-hongkong.aliyuncs.com/pettool/eureka-server:alpine
+          ports:
+            - name: http
+              containerPort: 8761
+          resources:
+            limits:
+              # cpuLimit：部署时云效会将预置占位符{{ .cpuLimit }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同CPU限制，可搭配变量组使用
+              cpu: {{.cpuLimit}}
+              # memoryLimit：部署时云效会将预置占位符{{ .memoryLimit }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同内存限制，可搭配变量组使用
+              memory: {{.memoryLimit}}
+            requests:
+              # cpuRequest：部署时云效会将预置占位符{{ .cpuRequest }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同CPU请求，可搭配变量组使用
+              cpu: {{.cpuRequest}}
+              # memoryRequest：部署时云效会将预置占位符{{ .memoryRequest }}替换成右侧设置的实际值
+              # 如果希望不同环境设置不同内存请求，可搭配变量组使用
+              memory: {{.memoryRequest}}
