@@ -4,9 +4,9 @@ metadata:
   name: admin-server
 spec:
   ports:
-    - port: 8010
+    - port: 8080
       protocol: TCP
-      targetPort: 8010
+      targetPort: 8080
   selector:
     run: admin-server
   sessionAffinity: None
@@ -32,7 +32,7 @@ spec:
           image: registry.cn-hongkong.aliyuncs.com/pettool/admin-server:alpine
           ports:
             - name: http
-              containerPort: 8010
+              containerPort: 8080
           env:
             - name: EUREKA_SERVICE_URL     #服务注册中心地址
               valueFrom:
