@@ -5,17 +5,11 @@ import com.itshow.cloud.demo.dto.UserDto;
 import com.itshow.cloud.demo.entity.User;
 import com.itshow.cloud.demo.feign.OrderFeignClient;
 import com.itshow.cloud.demo.repository.UserRepository;
-import com.itshow.cloud.demo.dto.OrderDto;
-import com.itshow.cloud.demo.dto.UserDto;
-import com.itshow.cloud.demo.feign.OrderFeignClient;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.itshow.cloud.demo.entity.User;
-import com.itshow.cloud.demo.repository.UserRepository;
 
 import java.util.List;
 
