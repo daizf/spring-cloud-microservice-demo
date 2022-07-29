@@ -16,7 +16,6 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 @EnableAutoConfiguration
 @EnableDiscoveryClient
 @EnableAdminServer
-
 public class AdminServerApplication {
   public static void main(String[] args) {
     SpringApplication.run(AdminServerApplication.class, args);
