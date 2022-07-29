@@ -1,7 +1,6 @@
 package com.itshow.cloud.demo.feign;
 
 import com.itshow.cloud.demo.dto.OrderDto;
-import com.itshow.cloud.demo.dto.OrderDto;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
