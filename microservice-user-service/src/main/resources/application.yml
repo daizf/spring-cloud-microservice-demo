@@ -28,6 +28,11 @@ eureka:
 management.security.enabled: false
 endpoints.health.sensitive: false
 
+# arthas tunnel server配置
+arthas:
+  agent-id: arthasDemo
+  tunnel-server: ws://http://47.242.220.7:7777/ws
+
 info:
   author: daizhifeng
   app:
